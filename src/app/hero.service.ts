@@ -17,6 +17,9 @@ export class HeroService {
   constructor(private messageService: MessageService) { }
 
   getHeroes(): Observable<Hero[]> {
+    // Modify the getHeroes method to send a message when the heroes are fetched.
+    // TODO: send the message _after_ fetching the heroes
+    this.messageService.add("HeroService: fetched heroes");
     return of(HEROES);
   }
 }
