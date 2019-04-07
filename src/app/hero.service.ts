@@ -1,3 +1,4 @@
+import { MessageService } from './message.service';
 import { HEROES } from './mock-heroes';
 import { Hero } from './hero';
 import { Injectable } from '@angular/core';
@@ -12,9 +13,10 @@ import { Observable, of } from 'rxjs';
 })
 export class HeroService {
 
-  constructor() { }
+  // This is a typical "service-in-service" scenario: you inject the MessageService into the HeroService which is injected into the HeroesComponent.
+  constructor(private messageService: MessageService) { }
 
-  getHeroes(): Observable<Hero[]>{
+  getHeroes(): Observable<Hero[]> {
     return of(HEROES);
   }
 }
